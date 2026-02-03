@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 from pathlib import Path
+import matplotlib.pyplot as plt
 
 # ===== CONFIGURATION =====
 # Get project root directory (parent of src/)
@@ -34,8 +35,6 @@ def split_indices(n: int, seed: int, train_frac: float = 0.70, val_frac: float =
     test_idx = perm[n_train + n_val:]
     return train_idx, val_idx, test_idx
 
-
-
 def main():
     df = pd.read_csv(CSV_PATH)
 
@@ -51,6 +50,7 @@ def main():
             new = num[:-1]
             true_val = int(new) * 1000
             df.at[idx, 'Vals'] = true_val
+    df['Vals'] = pd.to_numeric(df['Vals'], errors='coerce')
 
     for idx, num in enumerate(df['Min']):
         if ',' in num:
