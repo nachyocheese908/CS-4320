@@ -52,7 +52,6 @@ data/processed/
 logs/
 outputs/
 models/
-*.png
 *.jpg
 *.pdf
 
