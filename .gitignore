@@ -52,6 +52,8 @@ data/processed/
 logs/
 outputs/
 models/
+*.pdf
+*.jpg
 
 # OS
 .DS_Store
